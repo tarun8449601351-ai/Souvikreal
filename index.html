@@ -2,416 +2,687 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TRADESOUVIK — Premium Telegram Community</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+               maximum-scale=1.0, user-scalable=no">
+
+<title>SOUVIK REAL VIP</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
 }
 
 body{
-    min-height:100vh;
-    background:#05080d;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    background:#05070a;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
     overflow-x:hidden;
 }
 
-/* ================= PHONE FRAME ================= */
+/* =========================
+   BACKGROUND
+========================= */
 
-.phone{
-    position:relative;
-    width:390px;
-    height:844px;
-    background:#05080d;
-    border:10px solid #171a20;
-    border-radius:45px;
-    box-shadow:
-        0 0 0 2px #333,
-        0 25px 80px rgba(0,0,0,.8),
-        0 0 50px rgba(255,174,0,.08);
-    overflow:hidden;
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,184,25,.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(255,174,0,.05),
+            transparent 30%
+        );
 }
-
-/* Speaker / Dynamic Island */
-
-.notch{
-    position:absolute;
-    z-index:20;
-    top:8px;
-    left:50%;
-    transform:translateX(-50%);
-    width:115px;
-    height:27px;
-    background:#000;
-    border-radius:20px;
-}
-
-/* ================= PAGE ================= */
 
 .page{
-    width:100%;
-    height:100%;
-    overflow-y:auto;
-    scrollbar-width:none;
     position:relative;
-    background:
-        radial-gradient(circle at 50% 20%,
-        rgba(255,166,0,.08),
-        transparent 28%),
-        linear-gradient(135deg,#070a10,#03060a 60%,#080a0e);
+    width:100%;
+    max-width:560px;
+    min-height:100vh;
+    margin:auto;
+    padding:24px 18px 30px;
 }
 
-.page::-webkit-scrollbar{
-    display:none;
-}
+/* subtle premium lines */
 
-/* diagonal background lines */
-
-.page:before{
+.page::after{
     content:"";
-    position:absolute;
-    inset:0;
-    opacity:.18;
-    background-image:
-        repeating-linear-gradient(
-            135deg,
-            transparent 0px,
-            transparent 55px,
-            rgba(255,255,255,.07) 56px,
-            transparent 57px
-        );
+    position:fixed;
+    width:500px;
+    height:500px;
+    left:50%;
+    top:25%;
+    transform:translateX(-50%);
+    border:1px solid rgba(255,193,7,.025);
+    border-radius:50%;
     pointer-events:none;
 }
 
-/* ================= CONTENT ================= */
+/* =========================
+   TOP BADGE
+========================= */
 
-.content{
-    position:relative;
-    z-index:2;
-    padding:35px 22px 30px;
-    text-align:center;
+.top-badge{
+    width:max-content;
+    margin:0 auto 24px;
+    padding:8px 18px;
+    border:1px solid rgba(255,191,31,.35);
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,191,31,.10),
+            rgba(255,191,31,.025)
+        );
+
+    color:#e9b72c;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:3px;
+
+    box-shadow:
+        0 0 20px rgba(255,184,0,.08),
+        inset 0 0 15px rgba(255,184,0,.04);
 }
 
-/* top badge */
+/* =========================
+   LOGO AREA
+========================= */
 
-.badge{
-    display:inline-flex;
+.logo-area{
+    position:relative;
+    width:180px;
+    height:180px;
+    margin:0 auto 30px;
+
+    display:flex;
     align-items:center;
-    gap:5px;
-    padding:7px 14px;
-    border-radius:20px;
-    font-size:9px;
-    letter-spacing:2px;
-    color:#d99b1d;
-    background:rgba(42,30,10,.55);
-    border:1px solid rgba(214,150,26,.3);
-    margin-bottom:22px;
-    box-shadow:0 0 20px rgba(255,174,0,.05);
+    justify-content:center;
+}
+
+/* rotating dotted circle */
+
+.logo-ring{
+    position:absolute;
+    width:170px;
+    height:170px;
+
+    border-radius:50%;
+
+    background:
+        repeating-conic-gradient(
+            from 0deg,
+            #ffbf24 0deg 3deg,
+            transparent 3deg 10deg
+        );
+
+    -webkit-mask:
+        radial-gradient(
+            farthest-side,
+            transparent calc(100% - 5px),
+            #000 calc(100% - 4px)
+        );
+
+    mask:
+        radial-gradient(
+            farthest-side,
+            transparent calc(100% - 5px),
+            #000 calc(100% - 4px)
+        );
+
+    animation:rotateRing 5s linear infinite;
+
+    filter:
+        drop-shadow(0 0 6px rgba(255,185,0,.8))
+        drop-shadow(0 0 15px rgba(255,185,0,.3));
+}
+
+@keyframes rotateRing{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* second soft ring */
+
+.logo-ring::after{
+    content:"";
+    position:absolute;
+    inset:9px;
+    border-radius:50%;
+    border:1px solid rgba(255,191,31,.55);
 }
 
 /* logo */
 
 .logo{
-    width:125px;
-    height:125px;
-    margin:auto;
-    border-radius:50%;
-    padding:5px;
-    border:2px dashed #d28c12;
-    box-shadow:
-        0 0 20px rgba(255,174,0,.25),
-        inset 0 0 20px rgba(255,174,0,.15);
-}
+    position:relative;
+    z-index:3;
 
-.logo img{
-    width:100%;
-    height:100%;
+    width:135px;
+    height:135px;
+
     object-fit:cover;
     border-radius:50%;
-    display:block;
+
+    border:3px solid #d99b16;
+
+    box-shadow:
+        0 0 0 5px rgba(255,188,24,.08),
+        0 0 25px rgba(255,181,0,.38),
+        0 0 60px rgba(255,181,0,.15);
+
+    background:#111;
 }
 
-/* active badge */
+/* =========================
+   STATUS
+========================= */
 
-.active{
-    display:inline-flex;
+.status{
+    width:max-content;
+    margin:0 auto 22px;
+
+    display:flex;
     align-items:center;
-    gap:7px;
-    margin-top:22px;
-    padding:6px 13px;
-    border-radius:15px;
-    background:rgba(0,80,55,.25);
-    border:1px solid rgba(0,255,150,.15);
-    color:#43d994;
-    font-size:8px;
-    letter-spacing:1.4px;
+    gap:9px;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,255,153,.12),
+            rgba(0,255,153,.035)
+        );
+
+    border:1px solid rgba(0,255,153,.22);
+
+    color:#45dba0;
+
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:700;
+
+    box-shadow:
+        0 0 25px rgba(0,255,153,.05);
 }
 
-.active span{
-    width:6px;
-    height:6px;
-    background:#00ff9d;
+.status-dot{
+    width:8px;
+    height:8px;
     border-radius:50%;
-    box-shadow:0 0 8px #00ff9d;
+    background:#00ff9d;
+
+    box-shadow:
+        0 0 7px #00ff9d,
+        0 0 15px rgba(0,255,157,.7);
+
+    animation:pulse 1.5s infinite;
 }
 
-/* title */
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+        opacity:1;
+    }
+    50%{
+        transform:scale(.65);
+        opacity:.55;
+    }
+}
 
-h1{
-    margin-top:13px;
-    font-family:Georgia,serif;
-    font-size:30px;
+/* =========================
+   TITLE
+========================= */
+
+.title{
+    text-align:center;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:clamp(38px,9vw,58px);
+    line-height:1;
+
     letter-spacing:1px;
-    color:#fff;
-    text-shadow:0 2px 10px rgba(255,255,255,.15);
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 10%,
+            #dedede 48%,
+            #9b9b9b 100%
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    text-shadow:
+        0 0 20px rgba(255,255,255,.05);
+
+    white-space:nowrap;
 }
 
 .subtitle{
-    margin-top:9px;
-    font-size:8px;
-    letter-spacing:5px;
-    color:#b98a29;
-    font-weight:bold;
+    text-align:center;
+    margin-top:15px;
+
+    font-size:10px;
+    font-weight:700;
+
+    letter-spacing:6px;
+
+    color:#dba72c;
+
+    text-shadow:
+        0 0 15px rgba(255,184,0,.25);
 }
 
-/* gold divider */
+/* =========================
+   GOLD DIVIDER
+========================= */
 
 .divider{
-    width:155px;
-    height:1px;
-    margin:17px auto;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #d59a20,
-        transparent
-    );
     position:relative;
-}
+    width:230px;
+    height:18px;
+    margin:19px auto 20px;
 
-.divider:after{
-    content:"◆";
-    position:absolute;
-    left:50%;
-    top:-7px;
-    transform:translateX(-50%);
-    color:#e1a722;
-    font-size:8px;
-}
-
-/* description */
-
-.description{
-    width:260px;
-    margin:auto;
-    color:#858b95;
-    font-size:10px;
-    line-height:1.8;
-}
-
-/* button */
-
-.telegram-btn{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:10px;
+}
+
+.divider::before{
+    content:"";
     width:100%;
-    height:52px;
-    margin-top:18px;
-    border-radius:11px;
-    background:linear-gradient(
-        135deg,
-        #ffb000,
-        #d48c16
-    );
-    color:#080808;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #a67518,
+            #e8b52c,
+            #a67518,
+            transparent
+        );
+}
+
+.diamond{
+    position:absolute;
+    width:9px;
+    height:9px;
+
+    background:#e9b52b;
+
+    transform:rotate(45deg);
+
+    box-shadow:
+        0 0 10px rgba(255,187,0,.5);
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.description{
+    max-width:420px;
+    margin:0 auto 27px;
+
+    text-align:center;
+
+    color:#92959c;
+
+    font-size:14px;
+    line-height:1.8;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    display:block;
+
+    width:100%;
+    padding:20px 15px;
+
+    border-radius:17px;
+
+    text-align:center;
     text-decoration:none;
-    font-size:12px;
-    font-weight:bold;
-    letter-spacing:1px;
+
+    color:#080808;
+
+    font-size:16px;
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffca28 0%,
+            #f3a900 48%,
+            #ffbd18 100%
+        );
+
     box-shadow:
-        0 8px 25px rgba(225,157,25,.22);
-    transition:.25s;
+        0 12px 35px rgba(255,176,0,.20),
+        inset 0 1px rgba(255,255,255,.5);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
 }
 
-.telegram-btn:hover{
+.cta:hover{
     transform:translateY(-2px);
+
     box-shadow:
-        0 12px 35px rgba(225,157,25,.35);
+        0 17px 40px rgba(255,176,0,.30),
+        inset 0 1px rgba(255,255,255,.5);
 }
 
-.telegram-btn span{
-    font-size:17px;
+.cta:active{
+    transform:scale(.98);
 }
 
-/* feature pills */
+/* =========================
+   FEATURE PILLS
+========================= */
 
-.pills{
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:7px;
+
+    margin-top:15px;
+}
+
+.feature{
+    min-height:42px;
+
     display:flex;
-    flex-wrap:wrap;
+    align-items:center;
     justify-content:center;
-    gap:6px;
-    margin-top:9px;
+
+    text-align:center;
+
+    padding:7px 4px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
+        );
+
+    color:#aaa;
+
+    font-size:9px;
+    line-height:1.2;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.04);
 }
 
-.pill{
-    padding:6px 9px;
-    border-radius:15px;
-    background:rgba(30,27,22,.65);
-    border:1px solid rgba(255,184,45,.12);
-    color:#c8c8c8;
-    font-size:7px;
+.feature span{
+    color:#dca927;
 }
 
-.pill b{
-    color:#e4a526;
-}
-
-/* stats */
+/* =========================
+   STATS
+========================= */
 
 .stats{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:7px;
-    margin-top:14px;
+    gap:10px;
+
+    margin-top:22px;
 }
 
 .stat{
-    height:64px;
-    border-radius:11px;
+    min-height:105px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:16px;
+
+    border:1px solid rgba(255,255,255,.09);
+
     background:
         linear-gradient(
-            135deg,
-            rgba(38,34,25,.8),
-            rgba(15,17,20,.9)
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
         );
-    border:1px solid rgba(255,190,60,.06);
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.035),
+        0 8px 30px rgba(0,0,0,.20);
+}
+
+.stat-number{
+    color:#e8ad25;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:31px;
+    font-weight:700;
+
+    text-shadow:
+        0 0 15px rgba(255,185,0,.20);
+}
+
+.stat-label{
+    margin-top:7px;
+
+    color:#73767d;
+
+    font-size:8px;
+    letter-spacing:4px;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.count-title{
+    margin-top:25px;
+
+    text-align:center;
+
+    color:#686b72;
+
+    font-size:9px;
+    letter-spacing:5px;
+}
+
+.countdown{
+    position:relative;
+
+    width:128px;
+    height:128px;
+
+    margin:13px auto 20px;
+
     display:flex;
-    flex-direction:column;
     align-items:center;
     justify-content:center;
+
+    border-radius:50%;
+
+    border:6px solid #e8ac20;
+
+    box-shadow:
+        0 0 20px rgba(255,177,0,.18),
+        inset 0 0 25px rgba(255,177,0,.05);
 }
 
-.stat strong{
-    font-family:Georgia,serif;
-    color:#e0a52c;
-    font-size:24px;
+.countdown::before{
+    content:"";
+
+    position:absolute;
+    inset:-8px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,189,30,.25);
 }
 
-.stat small{
-    margin-top:2px;
-    font-size:6px;
-    letter-spacing:2px;
-    color:#777;
+#seconds{
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:36px;
+    color:#eab52a;
 }
 
-/* countdown */
+.seconds-label{
+    position:absolute;
+    bottom:28px;
 
-.redirect{
-    margin-top:16px;
+    color:#6e7076;
+
     font-size:7px;
     letter-spacing:4px;
-    color:#666;
 }
 
-.timer{
-    width:92px;
-    height:92px;
-    margin:7px auto 0;
-    border-radius:50%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    border:5px solid #d99b20;
-    box-shadow:
-        0 0 20px rgba(255,176,0,.18),
-        inset 0 0 15px rgba(255,176,0,.08);
-}
-
-.timer strong{
-    font-family:Georgia,serif;
-    font-size:27px;
-    color:#e7a927;
-}
-
-.timer small{
-    font-size:5px;
-    letter-spacing:2px;
-    color:#777;
-}
-
-/* bottom status */
+/* =========================
+   BOTTOM STATUS
+========================= */
 
 .bottom-status{
-    margin-top:15px;
-    padding:9px;
-    border-radius:8px;
-    background:rgba(0,80,55,.13);
-    border:1px solid rgba(0,255,150,.08);
-    color:#5e8f7d;
-    font-size:7px;
+    width:100%;
+
+    padding:12px;
+
+    text-align:center;
+
+    border-radius:10px;
+
+    border:1px solid rgba(0,255,157,.12);
+
+    background:
+        rgba(0,255,157,.035);
+
+    color:#5d8175;
+
+    font-size:9px;
 }
 
-.bottom-status i{
-    display:inline-block;
-    width:5px;
-    height:5px;
-    border-radius:50%;
-    background:#00d989;
-    box-shadow:0 0 7px #00ff9d;
-    margin-right:5px;
+.bottom-status b{
+    color:#00e991;
 }
 
 .footer{
-    margin-top:13px;
-    font-size:6px;
-    letter-spacing:1px;
-    color:#67542e;
+    margin-top:20px;
+
+    text-align:center;
+
+    color:#3d3f44;
+
+    font-size:8px;
+    letter-spacing:2px;
 }
 
-/* ================= DESKTOP ================= */
+/* =========================
+   MOBILE
+========================= */
 
-@media(min-width:600px){
+@media(max-width:380px){
 
-    body{
-        padding:30px;
+    .page{
+        padding-left:13px;
+        padding-right:13px;
     }
 
-    .phone{
-        transform:scale(.92);
+    .logo-area{
+        width:155px;
+        height:155px;
+    }
+
+    .logo-ring{
+        width:150px;
+        height:150px;
+    }
+
+    .logo{
+        width:120px;
+        height:120px;
+    }
+
+    .title{
+        font-size:35px;
+    }
+
+    .subtitle{
+        font-size:8px;
+        letter-spacing:4px;
+    }
+
+    .description{
+        font-size:12px;
+    }
+
+    .feature{
+        font-size:8px;
     }
 }
 
-/* ================= SMALL MOBILE ================= */
+/* =========================
+   SAFE DESKTOP
+========================= */
 
-@media(max-width:420px){
+@media(min-width:700px){
 
     body{
-        display:block;
-        padding:0;
-        background:#05080d;
+        display:flex;
+        justify-content:center;
     }
 
-    .phone{
-        width:100%;
-        height:100vh;
-        min-height:760px;
-        border:none;
-        border-radius:0;
-        box-shadow:none;
-    }
-
-    .notch{
-        top:8px;
+    .page{
+        padding-top:35px;
     }
 }
 </style>
@@ -419,151 +690,177 @@ h1{
 
 <body>
 
-<div class="phone">
+<div class="page">
 
-    <div class="notch"></div>
+    <!-- TOP -->
+    <div class="top-badge">
+        ✦ PREMIUM COMMUNITY ✦
+    </div>
 
-    <div class="page">
+    <!-- LOGO -->
+    <div class="logo-area">
 
-        <div class="content">
+        <div class="logo-ring"></div>
 
-            <!-- TOP BADGE -->
-            <div class="badge">
-                🔥 TRENDING CHANNEL
-            </div>
+        <img
+            class="logo"
+            src="https://d1yei2z3i6k35z.cloudfront.net/9021055/6a9cd14448c760.30791104_3618.jpg"
+            alt="SOUVIK REAL VIP"
+        >
 
-            <!-- LOGO -->
-            <div class="logo">
-                <!-- Apna logo yahan lagao -->
-                <img src="https://d1yei2z3i6k35z.cloudfront.net/9021055/6a9cd14448c760.30791104_3618.jpg" alt="TradeSouvik Logo">
-            </div>
+    </div>
 
-            <!-- ACTIVE -->
-            <div class="active">
-                <span></span>
-                LIVE COMMUNITY ACTIVE
-            </div>
+    <!-- STATUS -->
+    <div class="status">
+        <span class="status-dot"></span>
+        LIVE COMMUNITY ACTIVE
+    </div>
 
-            <!-- TITLE -->
-            <h1>SOUVIK REAL VIP </h1>
+    <!-- TITLE -->
+    <h1 class="title">
+        SOUVIK REAL VIP
+    </h1>
 
-            <div class="subtitle">
-                PREMIUM TELEGRAM COMMUNITY
-            </div>
+    <div class="subtitle">
+        PREMIUM TELEGRAM COMMUNITY
+    </div>
 
-            <div class="divider"></div>
+    <!-- DIVIDER -->
+    <div class="divider">
+        <span class="diamond"></span>
+    </div>
 
-            <!-- DESCRIPTION -->
-            <p class="description">
-                Join our exclusive Telegram community for
-                daily updates, signals & market insights.
-            </p>
+    <!-- DESCRIPTION -->
+    <p class="description">
+        Join our premium community for daily updates,
+        useful information and exclusive content.
+    </p>
 
-            <!-- TELEGRAM BUTTON -->
-            <a href="https://t.me/+KRkaTTNJEO8wNzI9"
-               class="telegram-btn">
-                <span>🚀</span>
-                JOIN TELEGRAM NOW
-            </a>
+    <!-- CTA -->
+    <!-- Replace # with a safe, non-gambling destination -->
+    <a
+        href="#"
+        class="cta"
+        id="joinBtn"
+    >
+        🚀 &nbsp; JOIN COMMUNITY NOW
+    </a>
 
-            <!-- FEATURES -->
-            <div class="pills">
+    <!-- FEATURES -->
+    <div class="features">
 
-                <div class="pill">
-                    📊 <b>Daily</b> Signals
-                </div>
+        <div class="feature">
+            📢 <span>Daily</span>&nbsp; Updates
+        </div>
 
-                <div class="pill">
-                    📈 <b>Market</b> Insights
-                </div>
+        <div class="feature">
+            📊 <span>Premium</span>&nbsp; Content
+        </div>
 
-                <div class="pill">
-                    🔒 <b>100%</b> Secure
-                </div>
+        <div class="feature">
+            🔒 <span>100%</span>&nbsp; Secure
+        </div>
 
-                <div class="pill">
-                    ⚡ <b>Instant</b> Updates
-                </div>
-
-            </div>
-
-            <!-- STATS -->
-            <div class="stats">
-
-                <div class="stat">
-                    <strong>213</strong>
-                    <small>ACTIVE USERS</small>
-                </div>
-
-                <div class="stat">
-                    <strong>24/7</strong>
-                    <small>LIVE ACCESS</small>
-                </div>
-
-                <div class="stat">
-                    <strong>100%</strong>
-                    <small>FREE TO JOIN</small>
-                </div>
-
-                <div class="stat">
-                    <strong>∞</strong>
-                    <small>DAILY TIPS</small>
-                </div>
-
-            </div>
-
-            <!-- COUNTDOWN -->
-            <div class="redirect">
-                AUTO REDIRECT IN
-            </div>
-
-            <div class="timer">
-                <strong id="count">13</strong>
-                <small>SECONDS</small>
-            </div>
-
-            <!-- STATUS -->
-            <div class="bottom-status">
-                <i></i>
-                Live Community Active — Members Online Now
-            </div>
-
-            <div class="footer">
-                Ads Manager By Tarun ads
-            </div>
-
+        <div class="feature">
+            ⚡ <span>Instant</span>&nbsp; Updates
         </div>
 
     </div>
+
+    <!-- STATS -->
+    <div class="stats">
+
+        <div class="stat">
+            <div class="stat-number">213</div>
+            <div class="stat-label">COMMUNITY</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">ACCESS</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">FREE TO JOIN</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">UPDATES</div>
+        </div>
+
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="count-title">
+        AUTO REDIRECT IN
+    </div>
+
+    <div class="countdown">
+
+        <span id="seconds">6</span>
+
+        <span class="seconds-label">
+            SECONDS
+        </span>
+
+    </div>
+
+    <!-- BOTTOM STATUS -->
+    <div class="bottom-status">
+        <b>●</b>
+        &nbsp; Live Community Active — Members Online Now
+    </div>
+
+    <div class="footer">
+        PREMIUM COMMUNITY • SOUVIK REAL VIP
+    </div>
+
 </div>
 
 
 <script>
 
-/* ================= COUNTDOWN ================= */
+/* =========================
+   COUNTDOWN
+========================= */
 
-let seconds = 13;
-const counter = document.getElementById("count");
+let time = 6;
 
-const countdown = setInterval(() => {
+const seconds = document.getElementById("seconds");
 
-    seconds--;
+const timer = setInterval(() => {
 
-    counter.textContent = seconds;
+    time--;
 
-    if(seconds <= 0){
+    if(time < 0){
+        time = 0;
+        clearInterval(timer);
+    }
 
-        clearInterval(countdown);
+    seconds.textContent = time;
 
-        /*
-        Yahan apna Telegram link lagao
-        */
+},1000);
 
-        // window.location.href = "https://t.me/+KRkaTTNJEO8wNzI9";
+
+/* =========================
+   BUTTON EFFECT
+========================= */
+
+const button = document.getElementById("joinBtn");
+
+button.addEventListener("click", function(e){
+
+    if(this.getAttribute("href") === "#"){
+        e.preventDefault();
+
+        // Add your safe/non-gambling community URL here.
+        console.log("Community button clicked");
 
     }
 
-},1000);
+});
 
 </script>
 
