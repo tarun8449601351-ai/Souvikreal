@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0,
                maximum-scale=1.0, user-scalable=no">
@@ -27,15 +28,12 @@ body{
     overflow-x:hidden;
 }
 
-/* =========================
-   BACKGROUND
-========================= */
-
 body::before{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
+
     background:
         radial-gradient(
             circle at 50% 20%,
@@ -58,8 +56,6 @@ body::before{
     padding:24px 18px 30px;
 }
 
-/* subtle premium lines */
-
 .page::after{
     content:"";
     position:fixed;
@@ -73,14 +69,13 @@ body::before{
     pointer-events:none;
 }
 
-/* =========================
-   TOP BADGE
-========================= */
+/* TOP BADGE */
 
 .top-badge{
     width:max-content;
     margin:0 auto 24px;
     padding:8px 18px;
+
     border:1px solid rgba(255,191,31,.35);
     border-radius:30px;
 
@@ -101,9 +96,7 @@ body::before{
         inset 0 0 15px rgba(255,184,0,.04);
 }
 
-/* =========================
-   LOGO AREA
-========================= */
+/* LOGO */
 
 .logo-area{
     position:relative;
@@ -115,8 +108,6 @@ body::before{
     align-items:center;
     justify-content:center;
 }
-
-/* rotating dotted circle */
 
 .logo-ring{
     position:absolute;
@@ -157,12 +148,11 @@ body::before{
     from{
         transform:rotate(0deg);
     }
+
     to{
         transform:rotate(360deg);
     }
 }
-
-/* second soft ring */
 
 .logo-ring::after{
     content:"";
@@ -171,8 +161,6 @@ body::before{
     border-radius:50%;
     border:1px solid rgba(255,191,31,.55);
 }
-
-/* logo */
 
 .logo{
     position:relative;
@@ -194,9 +182,7 @@ body::before{
     background:#111;
 }
 
-/* =========================
-   STATUS
-========================= */
+/* STATUS */
 
 .status{
     width:max-content;
@@ -224,15 +210,13 @@ body::before{
     font-size:10px;
     letter-spacing:2px;
     font-weight:700;
-
-    box-shadow:
-        0 0 25px rgba(0,255,153,.05);
 }
 
 .status-dot{
     width:8px;
     height:8px;
     border-radius:50%;
+
     background:#00ff9d;
 
     box-shadow:
@@ -247,15 +231,14 @@ body::before{
         transform:scale(1);
         opacity:1;
     }
+
     50%{
         transform:scale(.65);
         opacity:.55;
     }
 }
 
-/* =========================
-   TITLE
-========================= */
+/* TITLE */
 
 .title{
     text-align:center;
@@ -280,10 +263,8 @@ body::before{
 
     -webkit-background-clip:text;
     background-clip:text;
-    color:transparent;
 
-    text-shadow:
-        0 0 20px rgba(255,255,255,.05);
+    color:transparent;
 
     white-space:nowrap;
 }
@@ -303,14 +284,13 @@ body::before{
         0 0 15px rgba(255,184,0,.25);
 }
 
-/* =========================
-   GOLD DIVIDER
-========================= */
+/* DIVIDER */
 
 .divider{
     position:relative;
     width:230px;
     height:18px;
+
     margin:19px auto 20px;
 
     display:flex;
@@ -347,9 +327,7 @@ body::before{
         0 0 10px rgba(255,187,0,.5);
 }
 
-/* =========================
-   DESCRIPTION
-========================= */
+/* DESCRIPTION */
 
 .description{
     max-width:420px;
@@ -363,9 +341,7 @@ body::before{
     line-height:1.8;
 }
 
-/* =========================
-   CTA
-========================= */
+/* CTA BUTTON */
 
 .cta{
     display:block;
@@ -414,9 +390,7 @@ body::before{
     transform:scale(.98);
 }
 
-/* =========================
-   FEATURE PILLS
-========================= */
+/* FEATURES */
 
 .features{
     display:grid;
@@ -452,18 +426,13 @@ body::before{
 
     font-size:9px;
     line-height:1.2;
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.04);
 }
 
 .feature span{
     color:#dca927;
 }
 
-/* =========================
-   STATS
-========================= */
+/* STATS */
 
 .stats{
     display:grid;
@@ -510,6 +479,8 @@ body::before{
 
     text-shadow:
         0 0 15px rgba(255,185,0,.20);
+
+    text-align:center;
 }
 
 .stat-label{
@@ -521,9 +492,7 @@ body::before{
     letter-spacing:4px;
 }
 
-/* =========================
-   COUNTDOWN
-========================= */
+/* COUNTDOWN */
 
 .count-title{
     margin-top:25px;
@@ -588,9 +557,7 @@ body::before{
     letter-spacing:4px;
 }
 
-/* =========================
-   BOTTOM STATUS
-========================= */
+/* BOTTOM STATUS */
 
 .bottom-status{
     width:100%;
@@ -603,8 +570,7 @@ body::before{
 
     border:1px solid rgba(0,255,157,.12);
 
-    background:
-        rgba(0,255,157,.035);
+    background:rgba(0,255,157,.035);
 
     color:#5d8175;
 
@@ -626,9 +592,7 @@ body::before{
     letter-spacing:2px;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:380px){
 
@@ -670,9 +634,7 @@ body::before{
     }
 }
 
-/* =========================
-   SAFE DESKTOP
-========================= */
+/* DESKTOP */
 
 @media(min-width:700px){
 
@@ -692,10 +654,11 @@ body::before{
 
 <div class="page">
 
-    <!-- TOP -->
+    <!-- TOP BADGE -->
     <div class="top-badge">
         ✦ PREMIUM COMMUNITY ✦
     </div>
+
 
     <!-- LOGO -->
     <div class="logo-area">
@@ -710,11 +673,13 @@ body::before{
 
     </div>
 
+
     <!-- STATUS -->
     <div class="status">
         <span class="status-dot"></span>
         LIVE COMMUNITY ACTIVE
     </div>
+
 
     <!-- TITLE -->
     <h1 class="title">
@@ -725,24 +690,32 @@ body::before{
         PREMIUM TELEGRAM COMMUNITY
     </div>
 
+
     <!-- DIVIDER -->
     <div class="divider">
         <span class="diamond"></span>
     </div>
 
+
     <!-- DESCRIPTION -->
     <p class="description">
-        Join our Telegram Group for daily Profit,
-        useful information and exclusive income.
+        Join our Telegram Group for daily updates,
+        useful information and exclusive content.
     </p>
-       <a
-        href="#"
+
+
+    <!-- TELEGRAM BUTTON -->
+    <a
+        href="https://t.me/+KRkaTTNJEO8wNzI9"
         class="cta"
         id="joinBtn"
-<a href="https://t.me/+KRkaTTNJEO8wNzI9" class="btn">
-✈️ Join Telegram Now
-</a>
-      
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        ✈️ JOIN TELEGRAM NOW
+    </a>
+
+
     <!-- FEATURES -->
     <div class="features">
 
@@ -755,7 +728,7 @@ body::before{
         </div>
 
         <div class="feature">
-            🔒 <span>100%</span>&nbsp; Secure
+            🔒 <span>Secure</span>&nbsp; Community
         </div>
 
         <div class="feature">
@@ -763,6 +736,7 @@ body::before{
         </div>
 
     </div>
+
 
     <!-- STATS -->
     <div class="stats">
@@ -778,16 +752,17 @@ body::before{
         </div>
 
         <div class="stat">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">WINING RATE</div>
+            <div class="stat-number">VIP</div>
+            <div class="stat-label">CONTENT</div>
         </div>
 
         <div class="stat">
-            <div class="stat-number"> RECOVERY</div>
+            <div class="stat-number">RECOVERY</div>
             <div class="stat-label">VIP</div>
         </div>
 
     </div>
+
 
     <!-- COUNTDOWN -->
     <div class="count-title">
@@ -804,11 +779,13 @@ body::before{
 
     </div>
 
+
     <!-- BOTTOM STATUS -->
     <div class="bottom-status">
         <b>●</b>
-        &nbsp; Live Community Active — Members Online Now
+        &nbsp; Community Active — Join Now
     </div>
+
 
     <div class="footer">
         PREMIUM COMMUNITY • SOUVIK REAL VIP
@@ -819,21 +796,42 @@ body::before{
 
 <script>
 
-/* =========================
+/* =================================
+   TELEGRAM LINK
+================================= */
+
+const telegramLink =
+    "https://t.me/+KRkaTTNJEO8wNzI9";
+
+
+/* =================================
    COUNTDOWN
-========================= */
+================================= */
 
 let time = 6;
 
-const seconds = document.getElementById("seconds");
+const seconds =
+    document.getElementById("seconds");
 
-const timer = setInterval(() => {
+
+const timer = setInterval(function(){
 
     time--;
 
-    if(time < 0){
+    if(time <= 0){
+
         time = 0;
+
+        seconds.textContent = time;
+
         clearInterval(timer);
+
+        /*
+         * Automatic Telegram redirect
+         */
+        window.location.href = telegramLink;
+
+        return;
     }
 
     seconds.textContent = time;
@@ -841,42 +839,93 @@ const timer = setInterval(() => {
 },1000);
 
 
-/* =========================
-   BUTTON EFFECT
-========================= */
+/* =================================
+   BUTTON
+================================= */
 
-const button = document.getElementById("joinBtn");
+const button =
+    document.getElementById("joinBtn");
 
-button.addEventListener("click", function(e){
 
-    if(this.getAttribute("href") === "#"){
-        e.preventDefault();
+button.addEventListener("click", function(){
 
-        // .<"https://t.me/+KRkaTTNJEO8wNzI9">
-        console.log("Community button clicked");
+    /*
+     * Telegram link is already in href.
+     * This event only sends a Meta Pixel event.
+     */
+
+    if(typeof fbq === "function"){
+
+        fbq(
+            "trackCustom",
+            "TelegramJoinClick"
+        );
 
     }
 
 });
 
-</script>
-      <!-- Meta Pixel Code -->
-<script>
+
+/* =================================
+   META PIXEL
+================================= */
+
 !function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
+{
+    if(f.fbq)return;
+
+    n=f.fbq=function(){
+        n.callMethod ?
+        n.callMethod.apply(n,arguments) :
+        n.queue.push(arguments)
+    };
+
+    if(!f._fbq)f._fbq=n;
+
+    n.push=n;
+    n.loaded=!0;
+    n.version='2.0';
+
+    n.queue=[];
+
+    t=b.createElement(e);
+    t.async=!0;
+
+    t.src=v;
+
+    s=b.getElementsByTagName(e)[0];
+
+    s.parentNode.insertBefore(t,s);
+
+}
+(window, document, 'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1053196620891491');
-fbq('track', 'PageView');
+
+
+fbq(
+    'init',
+    '1053196620891491'
+);
+
+fbq(
+    'track',
+    'PageView'
+);
+
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1053196620891491&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+
+
+<noscript>
+
+    <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=1053196620891491&ev=PageView&noscript=1"
+    >
+
+</noscript>
+
 
 </body>
 </html>
