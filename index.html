@@ -3,261 +3,569 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TARUN ADS 💫</title>
+<title>TRADESOUVIK — Premium Telegram Community</title>
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-background:#000;
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow-x:hidden;
-position:relative;
+    min-height:100vh;
+    background:#05080d;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow-x:hidden;
 }
 
-body::before{
-content:"";
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at 20% 20%,rgba(255,120,0,.25),transparent 25%),
-radial-gradient(circle at 80% 30%,rgba(255,0,100,.2),transparent 25%),
-radial-gradient(circle at 50% 80%,rgba(0,255,255,.15),transparent 25%);
-filter:blur(30px);
+/* ================= PHONE FRAME ================= */
+
+.phone{
+    position:relative;
+    width:390px;
+    height:844px;
+    background:#05080d;
+    border:10px solid #171a20;
+    border-radius:45px;
+    box-shadow:
+        0 0 0 2px #333,
+        0 25px 80px rgba(0,0,0,.8),
+        0 0 50px rgba(255,174,0,.08);
+    overflow:hidden;
 }
 
-.container{
-width:100%;
-max-width:420px;
-padding:20px;
-position:relative;
-z-index:2;
+/* Speaker / Dynamic Island */
+
+.notch{
+    position:absolute;
+    z-index:20;
+    top:8px;
+    left:50%;
+    transform:translateX(-50%);
+    width:115px;
+    height:27px;
+    background:#000;
+    border-radius:20px;
 }
 
-.card{
-background:rgba(10,10,10,.92);
-border:1px solid rgba(255,255,255,.08);
-border-radius:30px;
-padding:30px 20px;
-text-align:center;
-backdrop-filter:blur(10px);
-box-shadow:0 0 35px rgba(255,100,0,.25);
+/* ================= PAGE ================= */
+
+.page{
+    width:100%;
+    height:100%;
+    overflow-y:auto;
+    scrollbar-width:none;
+    position:relative;
+    background:
+        radial-gradient(circle at 50% 20%,
+        rgba(255,166,0,.08),
+        transparent 28%),
+        linear-gradient(135deg,#070a10,#03060a 60%,#080a0e);
 }
 
-.top-badge{
-display:inline-block;
-padding:10px 20px;
-border:1px solid #ff8c00;
-border-radius:50px;
-color:#ffb347;
-font-weight:bold;
-margin-bottom:25px;
+.page::-webkit-scrollbar{
+    display:none;
 }
 
-.headline{
-font-size:42px;
-font-weight:bold;
-background:linear-gradient(90deg,#00ff88,#ff6b00);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-margin-bottom:25px;
+/* diagonal background lines */
+
+.page:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.18;
+    background-image:
+        repeating-linear-gradient(
+            135deg,
+            transparent 0px,
+            transparent 55px,
+            rgba(255,255,255,.07) 56px,
+            transparent 57px
+        );
+    pointer-events:none;
 }
 
-.dp{
-width:180px;
-height:180px;
-border-radius:50%;
-object-fit:cover;
-border:5px solid transparent;
-background:
-linear-gradient(#000,#000) padding-box,
-linear-gradient(45deg,#ff6b00,#ff00ff,#00ffff) border-box;
-box-shadow:0 0 40px rgba(255,100,0,.6);
+/* ================= CONTENT ================= */
+
+.content{
+    position:relative;
+    z-index:2;
+    padding:35px 22px 30px;
+    text-align:center;
 }
 
-.title{
-font-size:34px;
-font-weight:bold;
-color:#fff;
-margin-top:20px;
-margin-bottom:25px;
+/* top badge */
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    padding:7px 14px;
+    border-radius:20px;
+    font-size:9px;
+    letter-spacing:2px;
+    color:#d99b1d;
+    background:rgba(42,30,10,.55);
+    border:1px solid rgba(214,150,26,.3);
+    margin-bottom:22px;
+    box-shadow:0 0 20px rgba(255,174,0,.05);
 }
 
-.join-btn{
-display:block;
-width:100%;
-padding:18px;
-font-size:22px;
-font-weight:bold;
-text-decoration:none;
-color:#fff;
-border-radius:18px;
-background:linear-gradient(45deg,#ff416c,#ff7b00);
-box-shadow:0 0 30px rgba(255,80,80,.5);
-transition:.3s;
+/* logo */
+
+.logo{
+    width:125px;
+    height:125px;
+    margin:auto;
+    border-radius:50%;
+    padding:5px;
+    border:2px dashed #d28c12;
+    box-shadow:
+        0 0 20px rgba(255,174,0,.25),
+        inset 0 0 20px rgba(255,174,0,.15);
 }
 
-.join-btn:hover{
-transform:scale(1.03);
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    display:block;
 }
 
-.features{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-margin-top:25px;
+/* active badge */
+
+.active{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    margin-top:22px;
+    padding:6px 13px;
+    border-radius:15px;
+    background:rgba(0,80,55,.25);
+    border:1px solid rgba(0,255,150,.15);
+    color:#43d994;
+    font-size:8px;
+    letter-spacing:1.4px;
 }
 
-.box{
-background:rgba(255,255,255,.03);
-border:1px solid rgba(255,255,255,.08);
-border-radius:20px;
-padding:18px;
-color:#fff;
+.active span{
+    width:6px;
+    height:6px;
+    background:#00ff9d;
+    border-radius:50%;
+    box-shadow:0 0 8px #00ff9d;
 }
 
-.icon{
-font-size:30px;
-margin-bottom:10px;
+/* title */
+
+h1{
+    margin-top:13px;
+    font-family:Georgia,serif;
+    font-size:30px;
+    letter-spacing:1px;
+    color:#fff;
+    text-shadow:0 2px 10px rgba(255,255,255,.15);
 }
 
-.box h3{
-font-size:20px;
-margin-bottom:5px;
+.subtitle{
+    margin-top:9px;
+    font-size:8px;
+    letter-spacing:5px;
+    color:#b98a29;
+    font-weight:bold;
 }
 
-.box p{
-font-size:14px;
-opacity:.8;
+/* gold divider */
+
+.divider{
+    width:155px;
+    height:1px;
+    margin:17px auto;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #d59a20,
+        transparent
+    );
+    position:relative;
+}
+
+.divider:after{
+    content:"◆";
+    position:absolute;
+    left:50%;
+    top:-7px;
+    transform:translateX(-50%);
+    color:#e1a722;
+    font-size:8px;
+}
+
+/* description */
+
+.description{
+    width:260px;
+    margin:auto;
+    color:#858b95;
+    font-size:10px;
+    line-height:1.8;
+}
+
+/* button */
+
+.telegram-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    height:52px;
+    margin-top:18px;
+    border-radius:11px;
+    background:linear-gradient(
+        135deg,
+        #ffb000,
+        #d48c16
+    );
+    color:#080808;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+    box-shadow:
+        0 8px 25px rgba(225,157,25,.22);
+    transition:.25s;
+}
+
+.telegram-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:
+        0 12px 35px rgba(225,157,25,.35);
+}
+
+.telegram-btn span{
+    font-size:17px;
+}
+
+/* feature pills */
+
+.pills{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:6px;
+    margin-top:9px;
+}
+
+.pill{
+    padding:6px 9px;
+    border-radius:15px;
+    background:rgba(30,27,22,.65);
+    border:1px solid rgba(255,184,45,.12);
+    color:#c8c8c8;
+    font-size:7px;
+}
+
+.pill b{
+    color:#e4a526;
+}
+
+/* stats */
+
+.stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+    margin-top:14px;
+}
+
+.stat{
+    height:64px;
+    border-radius:11px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(38,34,25,.8),
+            rgba(15,17,20,.9)
+        );
+    border:1px solid rgba(255,190,60,.06);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.stat strong{
+    font-family:Georgia,serif;
+    color:#e0a52c;
+    font-size:24px;
+}
+
+.stat small{
+    margin-top:2px;
+    font-size:6px;
+    letter-spacing:2px;
+    color:#777;
+}
+
+/* countdown */
+
+.redirect{
+    margin-top:16px;
+    font-size:7px;
+    letter-spacing:4px;
+    color:#666;
+}
+
+.timer{
+    width:92px;
+    height:92px;
+    margin:7px auto 0;
+    border-radius:50%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    border:5px solid #d99b20;
+    box-shadow:
+        0 0 20px rgba(255,176,0,.18),
+        inset 0 0 15px rgba(255,176,0,.08);
+}
+
+.timer strong{
+    font-family:Georgia,serif;
+    font-size:27px;
+    color:#e7a927;
+}
+
+.timer small{
+    font-size:5px;
+    letter-spacing:2px;
+    color:#777;
+}
+
+/* bottom status */
+
+.bottom-status{
+    margin-top:15px;
+    padding:9px;
+    border-radius:8px;
+    background:rgba(0,80,55,.13);
+    border:1px solid rgba(0,255,150,.08);
+    color:#5e8f7d;
+    font-size:7px;
+}
+
+.bottom-status i{
+    display:inline-block;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#00d989;
+    box-shadow:0 0 7px #00ff9d;
+    margin-right:5px;
 }
 
 .footer{
-margin-top:20px;
-color:#bbb;
-font-size:14px;
+    margin-top:13px;
+    font-size:6px;
+    letter-spacing:1px;
+    color:#67542e;
 }
 
-.counter{
-margin-top:15px;
-color:#00ff88;
-font-size:18px;
-font-weight:bold;
+/* ================= DESKTOP ================= */
+
+@media(min-width:600px){
+
+    body{
+        padding:30px;
+    }
+
+    .phone{
+        transform:scale(.92);
+    }
 }
 
-@media(max-width:480px){
+/* ================= SMALL MOBILE ================= */
 
-.headline{
-font-size:36px;
-}
+@media(max-width:420px){
 
-.dp{
-width:170px;
-height:170px;
-}
+    body{
+        display:block;
+        padding:0;
+        background:#05080d;
+    }
 
-.title{
-font-size:28px;
-}
+    .phone{
+        width:100%;
+        height:100vh;
+        min-height:760px;
+        border:none;
+        border-radius:0;
+        box-shadow:none;
+    }
 
-.join-btn{
-font-size:20px;
-}
+    .notch{
+        top:8px;
+    }
 }
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2009803169668798');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2009803169668798&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
+
 <body>
 
-<div class="container">
+<div class="phone">
 
-<div class="card">
+    <div class="notch"></div>
 
-<div class="top-badge">👑 #1 TELEGRAM CHANNEL</div>
+    <div class="page">
 
-<div class="headline">SOUVIK REAL VIP 💫</div>
+        <div class="content">
 
-<img class="dp"
-src="https://d1yei2z3i6k35z.cloudfront.net/9021055/6a9cd14448c760.30791104_3618.jpg">
+            <!-- TOP BADGE -->
+            <div class="badge">
+                🔥 TRENDING CHANNEL
+            </div>
 
-<div class="title">SOUVIK REAL VIP 💫</div>
+            <!-- LOGO -->
+            <div class="logo">
+                <!-- Apna logo yahan lagao -->
+                <img src="https://d1yei2z3i6k35z.cloudfront.net/9021055/6a9cd14448c760.30791104_3618.jpg" alt="TradeSouvik Logo">
+            </div>
 
-<a class="join-btn"
-href="https://t.me/+KRkaTTNJEO8wNzI9"
-target="_blank">
-📢 JOIN TELEGRAM NOW
-</a>
+            <!-- ACTIVE -->
+            <div class="active">
+                <span></span>
+                LIVE COMMUNITY ACTIVE
+            </div>
 
-<div class="counter">
-🔥 999+ Members Joining...
+            <!-- TITLE -->
+            <h1>TRADESOUVIK</h1>
+
+            <div class="subtitle">
+                PREMIUM TELEGRAM COMMUNITY
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- DESCRIPTION -->
+            <p class="description">
+                Join our exclusive Telegram community for
+                daily updates, signals & market insights.
+            </p>
+
+            <!-- TELEGRAM BUTTON -->
+            <a href="https://t.me/+KRkaTTNJEO8wNzI9"
+               class="telegram-btn">
+                <span>🚀</span>
+                JOIN TELEGRAM NOW
+            </a>
+
+            <!-- FEATURES -->
+            <div class="pills">
+
+                <div class="pill">
+                    📊 <b>Daily</b> Signals
+                </div>
+
+                <div class="pill">
+                    📈 <b>Market</b> Insights
+                </div>
+
+                <div class="pill">
+                    🔒 <b>100%</b> Secure
+                </div>
+
+                <div class="pill">
+                    ⚡ <b>Instant</b> Updates
+                </div>
+
+            </div>
+
+            <!-- STATS -->
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>213</strong>
+                    <small>ACTIVE USERS</small>
+                </div>
+
+                <div class="stat">
+                    <strong>24/7</strong>
+                    <small>LIVE ACCESS</small>
+                </div>
+
+                <div class="stat">
+                    <strong>100%</strong>
+                    <small>FREE TO JOIN</small>
+                </div>
+
+                <div class="stat">
+                    <strong>∞</strong>
+                    <small>DAILY TIPS</small>
+                </div>
+
+            </div>
+
+            <!-- COUNTDOWN -->
+            <div class="redirect">
+                AUTO REDIRECT IN
+            </div>
+
+            <div class="timer">
+                <strong id="count">13</strong>
+                <small>SECONDS</small>
+            </div>
+
+            <!-- STATUS -->
+            <div class="bottom-status">
+                <i></i>
+                Live Community Active — Members Online Now
+            </div>
+
+            <div class="footer">
+                Ads Manager By Tarun ads
+            </div>
+
+        </div>
+
+    </div>
 </div>
 
-<div class="features">
-
-<div class="box">
-<div class="icon">⚡</div>
-<h3>Instant Updates</h3>
-<p>Never miss a beat</p>
-</div>
-
-<div class="box">
-<div class="icon">💎</div>
-<h3>Premium Content</h3>
-<p>Exclusive access only</p>
-</div>
-
-<div class="box">
-<div class="icon">👥</div>
-<h3>50K+ Active</h3>
-<p>Growing every day</p>
-</div>
-
-<div class="box">
-<div class="icon">🛡️</div>
-<h3>100% Safe</h3>
-<p>Trusted & Verified</p>
-</div>
-
-</div>
-
-<div class="footer">
-Trusted by Thousands • Free to Join • Instant Access
-</div>
-
-</div>
-
-</div>
 
 <script>
-setTimeout(30) => {
-window.location.href =
-"https://t.me/+KRkaTTNJEO8wNzI9";
-}, 1000);
+
+/* ================= COUNTDOWN ================= */
+
+let seconds = 13;
+const counter = document.getElementById("count");
+
+const countdown = setInterval(() => {
+
+    seconds--;
+
+    counter.textContent = seconds;
+
+    if(seconds <= 0){
+
+        clearInterval(countdown);
+
+        /*
+        Yahan apna Telegram link lagao
+        */
+
+        // window.location.href = "https://t.me/+KRkaTTNJEO8wNzI9";
+
+    }
+
+},1000);
+
 </script>
 
 </body>
 </html>
-    
